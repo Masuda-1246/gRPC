@@ -1,1 +1,0 @@
-protoc api/todopb/todo.proto --go-grpc_out=.
