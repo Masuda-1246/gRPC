@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  server:
+    image: todo:v1
+    ports:
+      - "50051:50051"
+    container_name: server
+    command: bash -c "go run server/server.go"
+    depends_on:
+      - mongo
+    volumes:
+      - ./api:/go/src/github.com/user/todo-app/api
+
+  client:
+    image: todo:v1
+    container_name: client
+    depends_on:
+      - server
+    volumes:
+      - ./api:/go/src/github.com/user/todo-app/api
+
+  mongo:
+    image: mongo
+    container_name: mongo
