@@ -76,6 +76,7 @@ func (s *myServer) HelloBiStreams(stream hellopb.GreetingService_HelloBiStreamsS
 		}); err != nil {
 			return err
 		}
+		// aaa
 	}
 }
 
